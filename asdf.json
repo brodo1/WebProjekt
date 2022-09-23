@@ -1,0 +1,16 @@
+
+[
+    { 
+        "name": "Peter", 
+        "Job": "Programmer" 
+    },
+    { 
+        "name": "John", 
+        "Job": "Programmer"
+     },
+    { 
+        "name": "Kevin", 
+        "Job": "Scientist" 
+    }
+]
+
