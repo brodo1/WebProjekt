@@ -3,7 +3,7 @@ include 'dbo-conn.php';
 
 $conn = OpenCon();
 
-echo "Connected Successfully";
+
 
 CloseCon($conn);
 ?>
@@ -13,18 +13,21 @@ CloseCon($conn);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+   
+    
     <link rel="stylesheet" href="./style.css">
+
+    
+        
+    
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Koliba</title>
 </head>
 <body>
     <script >
       
-          /* var img = new Image();
-           img.src = "./hamburger.png";
-           document.getElementById('show').appendChild(img);
-           */
           fetch('cicina-koliba-food.json')
         .then(function (response) {
             return response.json();
@@ -102,6 +105,9 @@ CloseCon($conn);
 
            $(document).ready(function () {
            
+            
+
+
             $('body').on('click','#headerRostilj', function(){
                     $('#rostiljCont').slideToggle();
             })
@@ -192,42 +198,118 @@ CloseCon($conn);
   
 
     </script>
-    
-    <!--Navbar-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <p class="navbar-brand" href="#">Restoran Koliba</p>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#opis">O nama</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#cijenik">Cijenik</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#rezervacija">Rezervacija</a>
-                </li>
-                </ul>
-            </div>
-            </div>
-        </nav>
-        <header class="header">
-            <img src="./entry_img.jpg" class="img-fluid" alt="Restoran" id="entry_img">  
-        </header>
-        <span id="content-divider"></span>
-       <!--Sadržaj web apk-->
-    <div class="content-container">
+     
+
+    <main class="l-main">
+   
+
         
-       
+        
+        
+       <!--Sadržaj web apk-->
+    
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Čićina koliba</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list" id="navList">
+                        
+                        <li class="nav__item"><a href="#about" class="nav__link">O nama</a></li>
+                        
+                        <li class="nav__item"><a href="#menu" class="nav__link">Jelovnik</a></li>
+                        <li class="nav__item"><a href="#rezervacija" class="nav__link">Rezervacija</a></li>
+                        <li class="nav__item"><a href="#kontakt" class="nav__link">Kontakt</a></li>
+
+                       
+                    </ul>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            
+            </nav>
+
+        </header>
+        
+        <section class="home" id="home">
+            
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="entryImage1.jpg" style="width:100%">
+                    
+                    </div>
+
+                    <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="entryImage2.jpg" style="width:100%">
+                    
+                    </div>
+
+                    <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="entryImage3.jpg" style="width:100%">
+                    
+                    </div>
+
+                 </div>
+                    <br>
+
+                    <div style="text-align:center">
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    </div>
+    
+                    
+           
+        </section>
+        <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000);
+        }
+        </script>
+        
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">O nama</span>
+                        <h2 class="section-title about__initial">Domaće  i svježe</h2>
+                        <p class="about__description">Restoran s dugom tradicijom. Sva hrana dolazi na stol svježe pripremljena pri čemu koristimo samo domaće namirnice.</p>
+                        
+                    </div>
+
+                    <img src="Images/Rostilj/biftek.jpg" alt="" class="about__img">
+                </div>
+            </section>
+
         <!--Cijenik-->
 
         
-        <div class= "cijenik-container" id="cijenik">
-            <h1>Jelovnik</h1>
-            
-                    
+        
+        <section class="menu section bd-container" id="menu">
+                
+                <h2 class="section-title">Jelovnik</h2>
+        
             
         <div class="main">
             <h4><a href="javascript:void(0)"  id="headerRostilj"> Roštilj</a></h4>
@@ -241,20 +323,21 @@ CloseCon($conn);
                    
             </div>
             <h4><a href="javascript:void(0)"  id="headerTjestenina">Tjestenina</a></h4>
-            <div class="menus" id="tjesteninaCont" style="display: none;" >
-                   
-            </div>
+            <div class="menus" id="tjesteninaCont" style="display: none;" > </div>
+
         </div>
+        
+    
+        </section>
 
+    
 
-    </div> 
-
-    <span id="content-divider"></span>
+    
     <!--Reservacije-->
-    <div class="rezervacija-container" id="rezervacija">
-        <h1>Rezervacija</h1>
+    <section class="rezervacija section bd-container" id="rezervacija">
+    <h2 class="section-title">Rezerviraj stol</h2>
         <span id="content-divider"></span>
-        <img src="restaurant-plan.png" alt="Sjedala" usemap="#rezervacija">
+        <img src="restaurant-plan.png" alt="Sjedala" usemap="#rezervacija" id="rezervacijaImg">
 
         <map name="rezervacija">
           <area class="table" shape="circle" coords="92,72,24" alt="SepareLijevi1" href="#content">
@@ -331,34 +414,58 @@ CloseCon($conn);
                   
         </div>
         
-    </div>
+        </section>
 
-    <div id="meni">
-        </div>
-
-    <div class="about-container" id="opis">
-            <h1>O nama</h1>
-            <span id="content-divider"></span>
-            <div class="map-container">
-                <div class="embed-responsive embed-responsive-1by1">
-                    <iframe id="map" class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2918.290082728729!2d21.944377915804484!3d42.993226002872056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47558319b251a41d%3A0x74a841e229ce3609!2zxIxpxI1pbmEga29saWJh!5e0!3m2!1shr!2shr!4v1651000696146!5m2!1shr!2shr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <span id="content-divider"></span>
+    <section id="kontakt">
+        <!--========== FOOTER ==========-->
+        <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content" >
+                    <a href="#" class="footer__logo">Čićina Koliba</a>
+                    <span class="footer__description">Restoran</span>
+                    <ul class="footer__description">
+                        <li>Radno vrijeme:</li>
+                        <li>Pon-Ned: 8 - 23</li>
+                     </ul>
+                    <div>
+                        <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                    </div>
                 </div>
-                <div class="text-container">
-                    <p>Otvoren 27. travnja 2022. godine, već dugi niz godina ima uspjesno poslovanje u slavoniji i baranji posebno u baranji.</p>
-                </div>
-            </div>  
-        </div>
 
+                <div class="footer__content">
+                    <h3 class="footer__title">Usluge</h3>
+                    <ul>
+                        <li><a href="#rezervacija" class="footer__link">Rezervacija stola</a></li>
+                        <li><a href="#menu" class="footer__link">Jelovnik</a></li>
+                        
+                    </ul>
+                </div>
+
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Kontakt</h3>
+                    <ul>
+                        <li>Leskovac, Srbija</li>
+                        <li>Ulica republike 123</li>
+                        <li>+38483221465</li>
+                        <li>cicinakoliba@email.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+        </footer>
+        </section>
 
     
-        
-
-    <script src="menu.js"></script>
+        </main>
 
 
-</div>
 
-
+        <script src="main.js"></script>
     
 </body>
 
